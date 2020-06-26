@@ -38,6 +38,7 @@ class Student < InteractiveRecord
   end
 
   def column_names_for_insert
+  end 
 
 
 end
