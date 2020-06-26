@@ -18,6 +18,7 @@ class Student < InteractiveRecord
      self.send("#{key}=", value)
     end
   end
+  
   def self.column_names
     DB[:conn].results_as_hash = true
 
