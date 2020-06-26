@@ -40,7 +40,7 @@ class Student < InteractiveRecord
   end
 
   def col_names_for_insert
-    self.column_names
+    self.column_names.flatten
   end
 
 
