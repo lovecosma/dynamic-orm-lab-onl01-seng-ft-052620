@@ -38,7 +38,7 @@ class Student < InteractiveRecord
   end
 
   def table_name_for_insert
-    
+    table_name.compact
   end
 
 
