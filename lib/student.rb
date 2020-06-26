@@ -8,6 +8,16 @@ class Student < InteractiveRecord
     self.to_s.downcase.pluralize
   end
 
+
+  self.column_names.each do |col_name|
+      attr_accessor col_name.to_sym
+    end
+
+  def initialize(hash = {})
+    hash.each do |key, value|
+     self.send("#{key}=", value)
+    end
+  end
   def self.column_names
     DB[:conn].results_as_hash = true
 
@@ -23,15 +33,6 @@ class Student < InteractiveRecord
      column_names.compact
   end
 
-  self.column_names.each do |col_name|
-      attr_accessor col_name.to_sym
-    end
-
-  def initialize(hash = {})
-    hash.each do |key, value|
-     self.send("#{key}=", value)
-    end
-  end
 
   def table_name_for_insert
     self.class.table_name
